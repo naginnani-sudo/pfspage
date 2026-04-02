@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - Proxima Finserv</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Proxima Finserv</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="emi-calculator.html" class="active">EMI Calculator</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>EMI Calculator</h1>
+        <p>Calculate Your Loan EMI Instantly</p>
+    </section>
+
+    <!-- EMI Calculator Section -->
+    <section class="emi-calculator-section">
+        <div class="container">
+            <div class="calculator-wrapper">
+                <div class="calculator-form">
+                    <h2>Calculate Your EMI</h2>
+                    
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="loanAmount" placeholder="Enter loan amount" value="500000" min="10000">
+                        <input type="range" id="loanAmountSlider" min="10000" max="10000000" value="500000" step="50000">
+                        <small>₹10,000 - ₹1,00,00,000</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interestRate">Annual Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="Enter interest rate" value="8.5" min="1" max="30" step="0.1">
+                        <input type="range" id="interestRateSlider" min="1" max="30" value="8.5" step="0.1">
+                        <small>1% - 30%</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanTenure">Loan Tenure (Months)</label>
+                        <input type="number" id="loanTenure" placeholder="Enter tenure in months" value="60" min="1" max="360">
+                        <input type="range" id="loanTenureSlider" min="1" max="360" value="60" step="1">
+                        <small>1 - 360 months (1 - 30 years)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanProduct">Loan Product Type</label>
+                        <select id="loanProduct">
+                            <option value="">Select Product Type</option>
+                            <option value="auto">Auto Loans</option>
+                            <option value="business">Business Loans</option>
+                            <option value="home">Home Loans</option>
+                            <option value="mortgage">Mortgage Loans</option>
+                            <option value="personal">Personal Loans</option>
+                            <option value="professional">Professional Loans</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-calculate" onclick="calculateEMI()">Calculate EMI</button>
+                    <button class="btn btn-secondary" onclick="resetCalculator()">Reset</button>
+                </div>
+
+                <div class="calculator-result">
+                    <h2>EMI Breakdown</h2>
+                    
+                    <div class="result-box">
+                        <div class="result-item">
+                            <span class="result-label">Monthly EMI</span>
+                            <span class="result-value" id="emiAmount">₹8,756</span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Total Amount Payable</span>
+                            <span class="result-value" id="totalAmount">₹5,25,360</span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Total Interest Payable</span>
+                            <span class="result-value" id="totalInterest">₹25,360</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Principal Amount</span>
+                            <span class="result-value" id="principalAmount">₹5,00,000</span>
+                        </div>
+                    </div>
+
+                    <div class="amortization-info">
+                        <p><strong>Note:</strong> This is an approximate calculation. Actual EMI may vary based on processing fees, 
+                        insurance, and other charges levied by the lending institution.</p>
+                    </div>
+
+                    <button class="btn" onclick="applyNow()">Apply for Loan</button>
+                </div>
+            </div>
+
+            <!-- Amortization Schedule -->
+            <div class="amortization-section">
+                <h2>Amortization Schedule</h2>
+                <p>View the month-by-month breakdown of your loan payment</p>
+                <button class="btn btn-secondary" onclick="toggleAmortization()">View Full Schedule</button>
+                
+                <div id="amortizationTable" class="amortization-table" style="display: none;">
+                    <table id="scheduleTable">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>EMI Amount</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Remaining Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Loan Product Info Cards -->
+            <div class="loan-info-cards">
+                <h2>Quick Loan Information</h2>
+                <div class="info-cards-grid">
+                    <div class="info-card">
+                        <h4>Auto Loans</h4>
+                        <p><strong>Interest Rate Range:</strong> 7% - 12%</p>
+                        <p><strong>Tenure:</strong> 12 - 84 months</p>
+                        <p><strong>Max Amount:</strong> 50 Lakhs</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Business Loans</h4>
+                        <p><strong>Interest Rate Range:</strong> 9% - 16%</p>
+                        <p><strong>Tenure:</strong> 12 - 60 months</p>
+                        <p><strong>Max Amount:</strong> 1 Crore</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Home Loans</h4>
+                        <p><strong>Interest Rate Range:</strong> 6.5% - 10%</p>
+                        <p><strong>Tenure:</strong> 5 - 30 years</p>
+                        <p><strong>Max Amount:</strong> 5 Crore</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Personal Loans</h4>
+                        <p><strong>Interest Rate Range:</strong> 10% - 18%</p>
+                        <p><strong>Tenure:</strong> 12 - 60 months</p>
+                        <p><strong>Max Amount:</strong> 50 Lakhs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Help Choosing the Right Loan?</h2>
+            <p>Contact our financial experts for personalized guidance</p>
+            <a href="contact.html" class="btn btn-large">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Proxima Finserv. All rights reserved.</p>
+            <p>Phone: <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> | Email: <a href="mailto:info@proximafinserv.com">info@proximafinserv.com</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
