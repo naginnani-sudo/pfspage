@@ -1,97 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sree Ujwala Associates</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap" rel="stylesheet">
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f5f7fa;
-}
-header {
-  background: #0B1F3A;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-.hero {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(to right, #0B1F3A, #1c3d6e);
-  color: white;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-}
-.btn {
-  background: #D4AF37;
-  padding: 12px 25px;
-  color: black;
-  border: none;
-  margin: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.section {
-  padding: 50px 20px;
-  text-align: center;
-}
-.services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.card {
-  background: white;
-  padding: 20px;
-  margin: 10px;
-  width: 250px;
-  border-radius: 10px;
-}
-footer {
-  background: #0B1F3A;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxima Finserv - Loan Consultancy in India</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><h1>Proxima Finserv</h1></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="emi-calculator.html">EMI Calculator</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<header>
-  <h2>Sree Ujwala Associates</h2>
-</header>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Trusted Financial Partner</h2>
+            <p>Expert Loan Consultancy with 16+ Years of Experience</p>
+            <a href="#products" class="cta-btn">Explore Our Products</a>
+        </div>
+    </section>
 
-<section class="hero">
-  <h1>Your Trusted Financial Partner</h1>
-  <p>Home Loans | Mortgage Loans | Business Loans | Personal Loans</p>
-  <button class="btn">Apply Now</button>
-  <button class="btn">Contact Us</button>
-</section>
+    <section class="intro" id="products">
+        <div class="container">
+            <h2>About Proxima Finserv</h2>
+            <p>Proxima Finserv is a leading loan consultancy firm in India, specializing in personalized financial solutions. Our team of experienced consultants with 16+ years in the financial products industry is committed to helping you achieve your financial goals.</p>
+        </div>
+    </section>
 
-<section class="section">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">Home Loans</div>
-    <div class="card">Mortgage Loans</div>
-    <div class="card">Business Loans</div>
-    <div class="card">Personal Loans</div>
-  </div>
-</section>
+    <section class="quick-products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3>Auto Loans</h3>
+                    <p>Flexible financing for your dream vehicle</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💼</div>
+                    <h3>Business Loans</h3>
+                    <p>Grow your business with our tailored solutions</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏠</div>
+                    <h3>Home Loans</h3>
+                    <p>Build your dream home with affordable EMI</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏦</div>
+                    <h3>Mortgage Loans</h3>
+                    <p>Secure financing against your property</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💰</div>
+                    <h3>Personal Loans</h3>
+                    <p>Quick approval for your personal needs</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👨‍⚕️</div>
+                    <h3>Self Employed Professional Loans</h3>
+                    <p>Special loans for CA's and Doctors</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="products.html" class="btn">Learn More</a>
+                <a href="emi-calculator.html" class="btn btn-secondary">Calculate EMI</a>
+            </div>
+        </div>
+    </section>
 
-<section class="section">
-  <h2>Contact Us</h2>
-  <p>Flat No G8, PPR Lake View Residency, Kukatpally, Hyderabad</p>
-</section>
+    <section class="why-us">
+        <div class="container">
+            <h2>Why Choose Proxima Finserv?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>16+ Years Experience</h3>
+                    <p>Our team has extensive experience in financial products and lending solutions</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Expert Guidance</h3>
+                    <p>Personalized consultation to find the perfect loan solution for you</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Quick Approval</h3>
+                    <p>Fast processing and quick approval for your loan applications</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Competitive Rates</h3>
+                    <p>Get the best interest rates and flexible repayment options</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <p>© 2026 Sree Ujwala Associates</p>
-</footer>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Achieve Your Financial Goals?</h2>
+            <p>Contact us today for a free consultation with our financial experts</p>
+            <a href="contact.html" class="btn btn-large">Get Started</a>
+        </div>
+    </section>
 
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Proxima Finserv. All rights reserved.</p>
+            <p>Phone: <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> | Email: <a href="mailto:info@proximafinserv.com">info@proximafinserv.com</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
